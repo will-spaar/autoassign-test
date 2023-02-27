@@ -5,32 +5,14 @@ on:
   pull_request:
     types: [opened, edited, labeled, unlabeled]
 jobs:
-  test:
+  run:
     runs-on: ubuntu-latest
     steps:
-      - uses: hmarr/debug-action@v2
-      - uses: actions/checkout@v3
-      - name: 🚧　Install
-        run: |
-          yarn
-      - name: 📦　Build
-        run: |
-          yarn build
-      - name: 🔑　Generate Token
-        uses: wow-actions/use-app-token@v2
+      - uses: wow-actions/auto-assign@v3
         with:
-          app_id: ${{ secrets.APP_ID }}
-          private_key: ${{ secrets.PRIVATE_KEY }}
-      - uses: ./
-        with:
-          GITHUB_TOKEN: ${{ env.BOT_TOKEN }}
-          addReviewers: true
-          addAssignees: true
-          numberOfReviewers: 1
-          numberOfAssignees: 1
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # using the `org/team_slug` or `/team_slug` syntax to add git team as reviewers
           reviewers: |
             will-spaar
-          assignees: |
-            will-spaar
-          skipKeywords: wip
-          excludeLabels: dependencies, wip
+          assignees: will-spaar
+          skipKeywords: wip, draft
