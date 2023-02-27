@@ -1,20 +1,15 @@
 name: Auto Assign
 on:
   issues:
-    types: [opened, edited, labeled, unlabeled]
+    types: [opened]
   pull_request:
-    types: [opened, edited, labeled, unlabeled]
+    types: [opened]
 jobs:
   run:
     runs-on: ubuntu-latest
     steps:
-      - uses: wow-actions/auto-assign@v3
+      - uses: wow-actions/auto-assign@v1
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          addReviewers: true
-          addAssignees: true
-          numberOfReviewers: 1
-          numberOfAssignees: 1
-          reviewers: will-spaar
-          assignees: will-spaar
+          CONFIG_FILE: .github/auto-assign.yml
     
