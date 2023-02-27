@@ -1,26 +1,36 @@
-# Set to true to add reviewers to PRs
-addReviewers: true
-
-# Set to 'author' to add PR's author as a assignee
-addAssignees: author
-
-# A list of reviewers to be added to PRs (GitHub user  name)
-reviewers:
-  - will-spaar
-
-# A number of reviewers added to the PR
-# Set 0 to add all the reviewers (default: 0)
-numberOfReviewers: 1
-
-# A list of assignees, overrides reviewers if set
-assignees:
-  - will-spaar
-
-# A number of assignees to add to the PRs
-# Set to 0 to add all of the assignees.
-# Uses numberOfReviewers if unset.
-numberOfAssignees: 0
-
-# A list of keywords to be skipped the process if PR's title include it
-skipKeywords:
-  - wip
+name: Auto Assign
+on:
+  issues:
+    types: [opened, edited, labeled, unlabeled]
+  pull_request:
+    types: [opened, edited, labeled, unlabeled]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: hmarr/debug-action@v2
+      - uses: actions/checkout@v3
+      - name: 🚧　Install
+        run: |
+          yarn
+      - name: 📦　Build
+        run: |
+          yarn build
+      - name: 🔑　Generate Token
+        uses: wow-actions/use-app-token@v2
+        with:
+          app_id: ${{ secrets.APP_ID }}
+          private_key: ${{ secrets.PRIVATE_KEY }}
+      - uses: ./
+        with:
+          GITHUB_TOKEN: ${{ env.BOT_TOKEN }}
+          addReviewers: true
+          addAssignees: true
+          numberOfReviewers: 1
+          numberOfAssignees: 1
+          reviewers: |
+            will-spaar
+          assignees: |
+            will-spaar
+          skipKeywords: wip
+          excludeLabels: dependencies, wip
