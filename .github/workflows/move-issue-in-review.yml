@@ -6,7 +6,7 @@ on:
 env:
   todo: Todo
   done: Done
-  in_review: In Review
+  in_review: In Review 🎁
   
 jobs:
   move-issue-in-review:
