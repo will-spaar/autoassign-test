@@ -26,8 +26,8 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           reviewers: |
-            willspaar
+            will-spaar
           assignees: |
-            willspaar
+            will-spaar
           includeLabels: bug
       
