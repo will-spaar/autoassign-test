@@ -1,8 +1,7 @@
  name: Set target date for issue
   on:
-    issue:
-      types:
-        - ready_for_review
+    issues:
+      types: [labeled]
  - name: Get date
         run: echo "DATE=$(date +"%Y-%m-%d")" >> $GITHUB_ENV
 
