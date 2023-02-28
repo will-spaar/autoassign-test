@@ -21,4 +21,4 @@ jobs:
           # organization: sample-org
           project_id: 1
           resource_node_id: ${{ github.event.pull_request.node_id }}
-          status_value: ${{ env.in_progress }} # Target status
+          status_value: ${{ env.in_review }} # Target status
