@@ -1,9 +1,7 @@
-name: Auto Assign
+name: Auto Assign Issues
 on:
   issues:
-    types: [labeled, unlabeled]
-  pull_request:
-    types: ready_for_review
+    types: labeled
 jobs:
   documentation-issue:
     name: Assign Documentation Issue
