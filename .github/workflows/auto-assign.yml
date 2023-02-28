@@ -14,5 +14,7 @@ jobs:
           # using the `org/team_slug` or `/team_slug` syntax to add git team as reviewers
           reviewers: |
             will-spaar
+            ffelix1
           assignees: |
             will-spaar
+            ffelix1
