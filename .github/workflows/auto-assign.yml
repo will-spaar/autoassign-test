@@ -18,3 +18,4 @@ jobs:
           assignees: |
             will-spaar
             ffelix1
+          includeLabels: documentation
