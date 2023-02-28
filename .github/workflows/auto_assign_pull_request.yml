@@ -1,15 +1,12 @@
-name: Auto Assign Pull Requests
+name: pull-request
 on:
   pull_request:
-    types: [opened, ready_for_review]
+    types: [opened, reopened]
 jobs:
-  assign-pull-request:
-    name: Assign Pull Request Reviewer
+  assign:
     runs-on: ubuntu-latest
     steps:
-      - uses: wow-actions/auto-assign@v3
+      - uses: delivery-much/actions-assigner@v1
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          reviewers: |
-            ffelix1
-          numberOfReviewers: 1
+          token: ${{ secrets.GITHUB_TOKEN }}
+          reviewers: ffelix1
