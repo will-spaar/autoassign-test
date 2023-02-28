@@ -1,7 +1,7 @@
 name: Auto Assign Pull Requests
 on:
   pull_request:
-    types: [ready_for_review]
+    types: ready_for_review
 jobs:
   documentation-issue:
     name: Assign Pull Request Reviewer - Documentation
@@ -11,5 +11,5 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           reviewers: |
-          ffelix1
+            ffelix1
           numberOfReviewers: 1
