@@ -1,3 +1,7 @@
+addReviewers: true
+
+addAssignees: true
+
 # A list of reviewers to be added to PRs (GitHub user  name)
 reviewers: will-spaar
 
