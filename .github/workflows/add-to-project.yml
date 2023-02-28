@@ -16,5 +16,3 @@ jobs:
           # to the issue
           project-url: https://github.com/users/will-spaar/projects/1
           github-token: ${{ secrets.ADD_TO_PROJECT }}
-          labeled: bug, needs-triage
-          label-operator: OR
