@@ -1,8 +1,8 @@
 name: Move issue attached to pull request
 on:
-  issues:
+  pull_request:
     types:
-      - assigned
+      - ready_for_review
 jobs:
   move-issue-in-review:
     runs-on: ubuntu-latest
