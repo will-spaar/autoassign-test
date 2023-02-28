@@ -29,5 +29,5 @@ jobs:
             will-spaar
           assignees: |
             will-spaar
-          includeLabels: documentation
+          includeLabels: bug
       
