@@ -1,0 +1,8 @@
+groups:
+  - name: reviewers 
+    reviewers: 1 
+    internal_reviewers: 1 
+    usernames:
+      - tyler-kaim1
+      - keith-gamble
+      - will-spaar
