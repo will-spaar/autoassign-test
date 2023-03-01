@@ -1,7 +1,7 @@
 name: Auto Assign Issues
 on:
   issues:
-    types: labeled
+    types: [opened, labeled]
 jobs:
   documentation-issue:
     name: Assign Documentation Issue
