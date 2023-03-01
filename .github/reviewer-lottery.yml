@@ -1,0 +1,7 @@
+groups:
+  - name: reviewers 
+    reviewers: 1 
+    internal_reviewers: 1 
+    usernames:
+      - ffelix1
+      - will-spaar
